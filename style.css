@@ -2,7 +2,7 @@ body { font-family: Tahoma, Arial, Verdana; font-size: 12px; 	color: black; }
 
 #chartdiv, #chartdiv2 {
 	position: absolute;
-	top:49px;
+	top:57px;
 }
 
 #chartdiv {
@@ -27,19 +27,22 @@ body { font-family: Tahoma, Arial, Verdana; font-size: 12px; 	color: black; }
 	z-index: 1000;
 }
 
+
+
 #holder {
-height: 600px;
-margin: -300px 0 0 -300px;
-width: 600px;
-position: absolute;
-left: 50%;
-top: 251px;
+	height: 600px;
+	margin: -300px 0 0 -293px;
+	width: 600px;
+	position: relative;
+	left: 50%;
+	top: 251px;
 }
+
 #time {
-text-align: center;
-font: 100 3em "Helvetica Neue", Helvetica, Arial, sans-serif;
-width: 400px;
-margin-top: 0px;
+	text-align: center;
+	font: 100 3em "Helvetica Neue", Helvetica, Arial, sans-serif;
+	width: 400px;
+	margin-top: 0px;
 }
 
 #circlediv {
@@ -50,16 +53,17 @@ margin-top: 0px;
 	left: 50%;
 	top: 250px;
 }
+
 #circle {
 	position: absolute;
 	left: 50%;
-	top: 250px;
+	top: 249px;
 	z-index: 10;
-    background: #fff;
-    width: 100px;
-    height: 100px;
-    margin-left: -43px;
-    border-radius: 50%;
+	background: #fff;
+	width: 100px;
+	height: 100px;
+	margin-left: -49px;
+	border-radius: 50%;
 }
 
 #scorepanel {

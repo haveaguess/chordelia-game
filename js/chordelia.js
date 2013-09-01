@@ -325,7 +325,11 @@ var chordelia = (function() {
 		var now = new Date;
 		var currentBeat = 1;
 		var totalBeat = 0;
-		var debug = true;
+		var debug = false;
+
+		$('#debugbutton').click(function() {
+			debug = true;			
+		});
 
 		// Main game loop - once per beat
 		(function () {
