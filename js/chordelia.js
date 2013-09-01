@@ -25,7 +25,8 @@ var chordelia = (function() {
 
 	// from tap tempo - http://www.all8.com/tools/bpm.htm
 	// var bpm = 90.26;
-	var bpm = 87;
+//	var bpm = 87;
+	var bpm = 86;
 	var secondsPerBeat = 60/bpm;
 
 	// one bar is a full round
@@ -275,6 +276,9 @@ var chordelia = (function() {
 			// WRITE
 			chart2.write("chartdiv2");
 
+			// first chord
+			//nextChord();
+
 			//start the music
 			startMusic(startGame);
 		});
@@ -320,18 +324,13 @@ var chordelia = (function() {
 		var init = true;
 		var now = new Date;
 		var currentBeat = 1;
+		var totalBeat = 0;
 		var debug = true;
-
-		// first chord
-		nextChord();
 
 		// Main game loop - once per beat
 		(function () {
+			var start = new Date;
 
-			// var d = new Date;
-			// var secsPassedSinceStart = Math.round((d.getTime()-startSecs)/1000);
-			updateVal(html, init, currentBeat, beatsPerRound, 200, sec, 0);
-			
 			// debug logging 
 			if (debug) {
 				$("#debug").html(
@@ -344,19 +343,28 @@ var chordelia = (function() {
 				);
 			}
 
-			if (currentBeat < beatsPerRound) {
+			if (currentBeat == 1) {
+				nextChord();
+			}
+
+			// var d = new Date;
+			// var secsPassedSinceStart = Math.round((d.getTime()-startSecs)/1000);
+			updateVal(html, init, currentBeat, beatsPerRound, 200, sec, 0);
+			
+			if (currentBeat < beatsPerRound ) {
 				currentBeat++;
 			} else {
 				currentBeat = 1;
-				nextChord();
 
 				// chart.animateAgain();
 				// chart2.animateAgain();
 			}
 
+			totalBeat++;
+
 			init = false;
 
-			// deferred recurse this anonymous function
+			// deferred recurse this anonymous function - minus exec time
 			setTimeout(arguments.callee, secondsPerBeat*1000);
 		})();
 	}
